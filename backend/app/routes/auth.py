@@ -1,3 +1,4 @@
+import os
 from datetime import datetime, timedelta, timezone
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -18,7 +19,7 @@ router = APIRouter(
 
 # ================= JWT CONFIG =================
 
-SECRET_KEY = "fittrack-ai-secret-key"
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
 
 security = HTTPBearer()
