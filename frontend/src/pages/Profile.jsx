@@ -1,3 +1,4 @@
+import API_URL from "../api";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -32,7 +33,7 @@ function Profile() {
       return;
     }
 
-    fetch("http://127.0.0.1:8000/profile/", {
+    fetch(`${API_URL}/profile/`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -121,7 +122,7 @@ function Profile() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/profile/",
+        `${API_URL}/profile/`,
         {
           method: profileExists ? "PUT" : "POST",
           headers: {

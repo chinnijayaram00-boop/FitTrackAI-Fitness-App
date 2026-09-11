@@ -1,3 +1,4 @@
+import API_URL from "../api";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -28,7 +29,7 @@ function Workout() {
       setLoading(true);
 
       const response = await fetch(
-        "http://127.0.0.1:8000/workouts/",
+        `${API_URL}/workouts/`,
         {
           method: "GET",
           headers: {
@@ -88,8 +89,8 @@ function Workout() {
 
     try {
       const url = editingId
-        ? `http://127.0.0.1:8000/workouts/${editingId}`
-        : "http://127.0.0.1:8000/workouts/";
+        ? `${API_URL}/workouts/${editingId}`
+        : `${API_URL}/workouts/${workoutId}`;
 
       const method = editingId ? "PUT" : "POST";
 
@@ -186,7 +187,7 @@ function Workout() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/workouts/${workoutId}`,
+        `${API_URL}/workouts/${workoutId}`,
         {
           method: "DELETE",
           headers: {

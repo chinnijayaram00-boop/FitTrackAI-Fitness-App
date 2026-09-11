@@ -1,3 +1,4 @@
+import API_URL from "../api";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -25,16 +26,13 @@ function Diet() {
     }
 
     try {
-      const response = await fetch(
-        "http://127.0.0.1:8000/diet/",
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${API_URL}/diet/`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (response.status === 401) {
         localStorage.removeItem("fittrack_token");
@@ -46,9 +44,7 @@ function Diet() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(
-          data.detail || "Failed to fetch diet"
-        );
+        throw new Error(data.detail || "Failed to fetch diet");
       }
 
       setMeals(data.diet || []);
@@ -91,8 +87,8 @@ function Diet() {
 
     try {
       const url = editingId
-        ? `http://127.0.0.1:8000/diet/${editingId}`
-        : "http://127.0.0.1:8000/diet/";
+        ? `${API_URL}/diet/${editingId}`
+        : `${API_URL}/diet/`;
 
       const method = editingId ? "PUT" : "POST";
 
@@ -173,7 +169,7 @@ function Diet() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/diet/${dietId}`,
+        `${API_URL}/diet/${dietId}`,
         {
           method: "DELETE",
           headers: {
@@ -229,8 +225,6 @@ function Diet() {
 
   return (
     <div className="dashboard-page">
-
-      {/* Sidebar */}
 
       <aside className="sidebar">
 
@@ -292,8 +286,6 @@ function Diet() {
 
       </aside>
 
-      {/* Main */}
-
       <main className="dashboard-main">
 
         <div className="dashboard-topbar">
@@ -313,8 +305,6 @@ function Diet() {
           </div>
 
         </div>
-
-        {/* AI Nutrition Recommendation */}
 
         <section className="diet-ai-banner">
 
@@ -344,8 +334,6 @@ function Diet() {
           </Link>
 
         </section>
-
-        {/* Nutrition Stats */}
 
         <section className="stats-grid">
 
@@ -447,13 +435,12 @@ function Diet() {
 
         </section>
 
-        {/* ADD / EDIT MEAL */}
-
         <section className="dashboard-panel">
 
           <div className="panel-header">
 
             <div>
+
               <span>
                 {editingId ? "EDIT MEAL" : "ADD MEAL"}
               </span>
@@ -463,6 +450,7 @@ function Diet() {
                   ? "Update Nutrition"
                   : "Add Nutrition"}
               </h2>
+
             </div>
 
           </div>
@@ -483,6 +471,7 @@ function Diet() {
               }
               required
             >
+
               <option value="">
                 Select Meal
               </option>
@@ -502,6 +491,7 @@ function Diet() {
               <option value="Snack">
                 Snack
               </option>
+
             </select>
 
             <input
@@ -572,8 +562,6 @@ function Diet() {
           </form>
 
         </section>
-
-        {/* Meals */}
 
         <section className="dashboard-panel">
 

@@ -1,3 +1,4 @@
+import API_URL from "../api";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -33,7 +34,7 @@ function Progress() {
       setError("");
 
       const response = await fetch(
-        "http://127.0.0.1:8000/progress/",
+      `${API_URL}/progress/`,
         {
           method: "GET",
           headers: {
@@ -133,9 +134,8 @@ function Progress() {
 
     try {
       const url = editingId
-        ? `http://127.0.0.1:8000/progress/${editingId}`
-        : "http://127.0.0.1:8000/progress/";
-
+        ? `${API_URL}/progress/${editingId}`
+        : `${API_URL}/progress/${progressId}`      
       const method = editingId ? "PUT" : "POST";
 
       const response = await fetch(url, {
@@ -227,7 +227,7 @@ function Progress() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/progress/${progressId}`,
+        `${API_URL}/progress/${progressId}`,
         {
           method: "DELETE",
           headers: {

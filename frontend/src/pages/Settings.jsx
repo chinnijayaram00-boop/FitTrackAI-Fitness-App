@@ -1,3 +1,4 @@
+import API_URL from "../api";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -63,7 +64,7 @@ function Settings() {
 
 
     fetch(
-      "http://127.0.0.1:8000/settings/",
+      `${API_URL}/settings/`,
       {
         method: "GET",
 
@@ -168,7 +169,7 @@ function Settings() {
 
         const response =
           await fetch(
-            "http://127.0.0.1:8000/settings/",
+            `${API_URL}/settings/`,
             {
               method: "PUT",
 

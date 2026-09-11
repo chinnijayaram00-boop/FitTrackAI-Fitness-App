@@ -1,3 +1,4 @@
+import API_URL from "../api";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -36,8 +37,7 @@ function AITrainer() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/ai/chat",
-        {
+        `${API_URL}/ai/chat`,        {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

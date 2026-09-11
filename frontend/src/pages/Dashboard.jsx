@@ -1,3 +1,4 @@
+import API_URL from "../api";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -28,15 +29,15 @@ function Dashboard() {
           dietResponse,
           progressResponse,
         ] = await Promise.all([
-          fetch("http://127.0.0.1:8000/workouts/", {
+          fetch(`${API_URL}/workouts/`, {
             headers,
           }),
 
-          fetch("http://127.0.0.1:8000/diet/", {
+          fetch(`${API_URL}/diet/`, {
             headers,
           }),
 
-          fetch("http://127.0.0.1:8000/progress/", {
+          fetch(`${API_URL}/progress/`, {
             headers,
           }),
         ]);
