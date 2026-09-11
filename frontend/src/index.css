@@ -1,0 +1,2316 @@
+/* ================================
+   FITTRACK AI DASHBOARD
+================================ */
+
+.dashboard-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f5f7fb;
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #e8ebf0;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.sidebar-logo {
+  font-size: 24px;
+  font-weight: 800;
+  padding: 0 15px;
+  margin-bottom: 45px;
+}
+
+.sidebar-logo span {
+  color: #22c55e;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-nav a {
+  padding: 13px 15px;
+  border-radius: 10px;
+  color: #687386;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.sidebar-nav a:hover {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.sidebar-nav a.active {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.logout-button {
+  margin-top: auto;
+  padding: 13px 15px;
+  border-radius: 10px;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.logout-button:hover {
+  background: #fef2f2;
+}
+
+/* Main */
+
+.dashboard-main {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  padding: 35px 40px;
+}
+
+/* Topbar */
+
+.dashboard-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.dashboard-topbar h1 {
+  font-size: 28px;
+  margin-bottom: 7px;
+}
+
+.dashboard-topbar p {
+  color: #737d8e;
+}
+
+.profile-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* Stats */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.fitness-stat {
+  background: white;
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f0fdf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.fitness-stat span {
+  color: #737d8e;
+  font-size: 13px;
+}
+
+.fitness-stat h2 {
+  font-size: 24px;
+  margin: 4px 0;
+}
+
+.fitness-stat small {
+  color: #9aa3b2;
+}
+
+/* Dashboard Content */
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.dashboard-panel {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.ai-panel {
+  background: linear-gradient(135deg, #f0fdf4, #ffffff);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.panel-header span {
+  color: #737d8e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.panel-header h2 {
+  font-size: 19px;
+  margin-top: 6px;
+}
+
+.panel-header a {
+  color: #16a34a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ai-label {
+  color: #16a34a !important;
+}
+
+.ai-panel p {
+  color: #667085;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.ai-action {
+  border: none;
+  background: #22c55e;
+  color: white;
+  padding: 11px 18px;
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+/* Workout */
+
+.workout-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 0;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.workout-item:last-child {
+  border-bottom: none;
+}
+
+.workout-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 11px;
+  background: #f0fdf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.workout-item strong {
+  font-size: 15px;
+}
+
+.workout-item p {
+  margin-top: 4px;
+  color: #8992a2;
+  font-size: 13px;
+}
+
+/* Nutrition */
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.nutrition-grid div {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.nutrition-grid strong {
+  display: block;
+  font-size: 21px;
+  margin-bottom: 4px;
+}
+
+.nutrition-grid span {
+  color: #7b8494;
+  font-size: 13px;
+}
+
+/* Progress */
+
+.progress-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 20px auto;
+  background: conic-gradient(
+    #22c55e 0deg 259deg,
+    #e5e7eb 259deg 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-circle::before {
+  content: "";
+  position: absolute;
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  background: white;
+}
+
+.progress-circle div {
+  position: relative;
+  text-align: center;
+}
+
+.progress-circle strong {
+  display: block;
+  font-size: 28px;
+}
+
+.progress-circle span {
+  color: #7b8494;
+  font-size: 12px;
+}
+
+.progress-message {
+  text-align: center;
+  color: #667085;
+}
+
+/* Dashboard Responsive */
+
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    width: 75px;
+    padding: 20px 10px;
+  }
+
+  .sidebar-logo {
+    font-size: 0;
+    text-align: center;
+    padding: 0;
+  }
+
+  .sidebar-logo::before {
+    content: "F";
+    font-size: 24px;
+  }
+
+  .sidebar-nav a {
+    font-size: 0;
+    text-align: center;
+  }
+
+  .sidebar-nav a::first-letter {
+    font-size: 20px;
+  }
+
+  .logout-button {
+    font-size: 0;
+    text-align: center;
+  }
+
+  .dashboard-main {
+    margin-left: 75px;
+    width: calc(100% - 75px);
+    padding: 25px 20px;
+  }
+
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 550px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-topbar h1 {
+    font-size: 22px;
+  }
+
+  .dashboard-main {
+    padding: 20px 14px;
+  }
+}
+/* ================================
+   WORKOUT PAGE
+================================ */
+
+.workout-ai-banner {
+  background: linear-gradient(135deg, #dcfce7, #f0fdf4);
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.workout-ai-banner span {
+  color: #15803d;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.workout-ai-banner h2 {
+  margin: 8px 0;
+  font-size: 24px;
+}
+
+.workout-ai-banner p {
+  color: #667085;
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.exercise-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 5px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.exercise-card:last-child {
+  border-bottom: none;
+}
+
+.exercise-number {
+  width: 30px;
+  font-weight: 800;
+  color: #9aa3b2;
+}
+
+.exercise-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f0fdf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+}
+
+.exercise-info {
+  flex: 1;
+}
+
+.exercise-info h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.exercise-info p {
+  color: #8992a2;
+  font-size: 13px;
+}
+
+.exercise-details {
+  display: flex;
+  gap: 15px;
+}
+
+.exercise-details span {
+  color: #667085;
+  font-size: 13px;
+  background: #f8fafc;
+  padding: 7px 10px;
+  border-radius: 7px;
+}
+
+.exercise-button {
+  border: none;
+  background: #22c55e;
+  color: white;
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.exercise-button:hover {
+  background: #16a34a;
+}
+
+@media (max-width: 800px) {
+  .workout-ai-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exercise-details {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .exercise-card {
+    gap: 8px;
+  }
+
+  .exercise-number {
+    display: none;
+  }
+
+  .exercise-button {
+    padding: 8px 10px;
+  }
+}
+
+/* ================================
+   DIET PAGE
+================================ */
+
+.diet-ai-banner {
+  background: linear-gradient(135deg, #fff7ed, #ffffff);
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  border: 1px solid #fed7aa;
+}
+
+.diet-ai-banner span {
+  color: #ea580c;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.diet-ai-banner h2 {
+  margin: 8px 0;
+  font-size: 24px;
+}
+
+.diet-ai-banner p {
+  color: #667085;
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+.meal-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.meal-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 5px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.meal-card:last-child {
+  border-bottom: none;
+}
+
+.meal-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 14px;
+  background: #fff7ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+}
+
+.meal-info {
+  flex: 1;
+}
+
+.meal-time {
+  color: #ea580c !important;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.meal-info h3 {
+  margin: 4px 0;
+  font-size: 16px;
+}
+
+.meal-info p {
+  color: #8992a2;
+  font-size: 13px;
+}
+
+.meal-nutrition {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 4px;
+}
+
+.meal-nutrition strong {
+  font-size: 15px;
+}
+
+.meal-nutrition span {
+  color: #16a34a;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.meal-button {
+  border: 1px solid #e5e7eb;
+  background: white;
+  padding: 9px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.meal-button:hover {
+  background: #f8fafc;
+}
+
+@media (max-width: 800px) {
+  .diet-ai-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .meal-nutrition {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .meal-card {
+    gap: 10px;
+  }
+
+  .meal-button {
+    padding: 8px 10px;
+  }
+}
+/* =================================
+   FITTRACK AI - PROGRESS PAGE
+================================= */
+
+.progress-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.progress-main {
+  margin-left: 250px;
+  padding: 35px 40px;
+  width: calc(100% - 250px);
+}
+
+.progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.progress-header h1 {
+  font-size: 28px;
+  margin-bottom: 7px;
+}
+
+.progress-header p {
+  color: #737d8e;
+}
+
+.period-select {
+  padding: 11px 15px;
+  border: 1px solid #dce1e8;
+  border-radius: 10px;
+  background: white;
+  color: #4b5563;
+  outline: none;
+}
+
+/* Progress Stats */
+
+.progress-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.progress-stat-card {
+  background: white;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.progress-stat-card span {
+  color: #737d8e;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.progress-stat-card h2 {
+  font-size: 27px;
+  margin: 10px 0 5px;
+}
+
+.progress-stat-card small {
+  color: #16a34a;
+}
+
+/* Progress Grid */
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+.progress-panel {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.large-panel {
+  min-height: 310px;
+}
+
+.progress-panel .panel-header {
+  margin-bottom: 25px;
+}
+
+.progress-panel .panel-header span {
+  color: #737d8e;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.progress-panel .panel-header h2 {
+  margin-top: 6px;
+  font-size: 19px;
+}
+
+/* Fake Progress Chart */
+
+.chart {
+  height: 190px;
+  position: relative;
+  margin-top: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 45px,
+    #f1f3f6 46px
+  );
+}
+
+.chart-line {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 35px;
+  height: 100px;
+  border-bottom: 4px solid #22c55e;
+  border-radius: 50%;
+  transform: rotate(-5deg);
+}
+
+.chart-point {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #22c55e;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px #22c55e;
+}
+
+.p1 {
+  left: 0;
+  top: 82px;
+}
+
+.p2 {
+  left: 19%;
+  top: 68px;
+}
+
+.p3 {
+  left: 38%;
+  top: 75px;
+}
+
+.p4 {
+  left: 57%;
+  top: 48px;
+}
+
+.p5 {
+  left: 76%;
+  top: 35px;
+}
+
+.p6 {
+  right: 0;
+  top: 20px;
+}
+
+.chart-labels {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -25px;
+  display: flex;
+  justify-content: space-between;
+  color: #8992a2;
+  font-size: 11px;
+}
+
+/* Goal Circle */
+
+.goal-circle {
+  width: 155px;
+  height: 155px;
+  margin: 15px auto 20px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #22c55e 0deg 270deg,
+    #e5e7eb 270deg 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.goal-circle::before {
+  content: "";
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+}
+
+.goal-circle div {
+  position: relative;
+  text-align: center;
+}
+
+.goal-circle strong {
+  display: block;
+  font-size: 28px;
+}
+
+.goal-circle span {
+  color: #7b8494;
+  font-size: 12px;
+}
+
+.goal-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.goal-info p {
+  background: #f8fafc;
+  padding: 13px;
+  border-radius: 10px;
+  color: #7b8494;
+  font-size: 12px;
+}
+
+.goal-info strong {
+  display: block;
+  color: #172033;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+/* Activity */
+
+.activity-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 0;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.activity-row:last-child {
+  border-bottom: none;
+}
+
+.activity-row span {
+  color: #596273;
+}
+
+.activity-row strong {
+  font-size: 14px;
+}
+
+/* AI Progress */
+
+.ai-progress {
+  background: linear-gradient(135deg, #f0fdf4, white);
+}
+
+.ai-progress p {
+  color: #667085;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+.ai-progress .ai-action {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+  .progress-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .progress-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .progress-main {
+    margin-left: 75px;
+    width: calc(100% - 75px);
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .progress-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .progress-header h1 {
+    font-size: 23px;
+  }
+
+  .goal-info {
+    grid-template-columns: 1fr;
+  }
+}
+/* =================================
+   FITTRACK AI - AI TRAINER
+================================= */
+
+.ai-trainer-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.ai-trainer-main {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  padding: 35px 40px;
+}
+
+/* Header */
+
+.ai-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.ai-badge {
+  display: inline-block;
+  color: #15803d;
+  background: #dcfce7;
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.ai-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.ai-header p {
+  color: #737d8e;
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+.ai-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #15803d;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.ai-status span {
+  width: 9px;
+  height: 9px;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+/* Layout */
+
+.ai-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 22px;
+}
+
+/* Chat */
+
+.chat-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.05);
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.trainer-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #dcfce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.chat-header h3 {
+  font-size: 16px;
+}
+
+.chat-header p {
+  font-size: 12px;
+  color: #8a93a2;
+  margin-top: 4px;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 28px;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.message-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #dcfce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+}
+
+.message-bubble {
+  background: #f4f6f8;
+  padding: 15px 18px;
+  border-radius: 5px 15px 15px 15px;
+  max-width: 600px;
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Quick Questions */
+
+.quick-questions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 25px 0 0 47px;
+}
+
+.quick-questions button {
+  border: 1px solid #e1e5eb;
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: left;
+  color: #596273;
+  font-size: 12px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.quick-questions button:hover {
+  border-color: #22c55e;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+/* Input */
+
+.chat-input-area {
+  display: flex;
+  gap: 10px;
+  padding: 18px 22px;
+  border-top: 1px solid #edf0f4;
+}
+
+.chat-input-area input {
+  flex: 1;
+  border: 1px solid #dce1e8;
+  padding: 13px 15px;
+  border-radius: 11px;
+  outline: none;
+  color: #172033;
+}
+
+.chat-input-area input:focus {
+  border-color: #22c55e;
+}
+
+.send-button {
+  width: 48px;
+  border: none;
+  border-radius: 11px;
+  background: #22c55e;
+  color: white;
+  font-size: 18px;
+}
+
+/* AI Insights */
+
+.ai-insights {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.insight-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.insight-card span {
+  color: #7b8494;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.insight-card h2 {
+  font-size: 20px;
+  margin: 9px 0 5px;
+}
+
+.insight-card p {
+  color: #7b8494;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.ai-tip {
+  background: linear-gradient(135deg, #f0fdf4, white);
+}
+
+.ai-tip span {
+  color: #16a34a;
+}
+
+/* Responsive */
+
+@media (max-width: 1050px) {
+  .ai-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-insights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .ai-trainer-main {
+    margin-left: 75px;
+    width: calc(100% - 75px);
+    padding: 25px 20px;
+  }
+
+  .ai-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .quick-questions {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+  }
+
+  .ai-insights {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-messages {
+    padding: 18px;
+  }
+
+  .ai-header h1 {
+    font-size: 23px;
+  }
+}
+/* =================================
+   FITTRACK AI - PROFILE
+================================= */
+
+.profile-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.profile-main {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  padding: 35px 40px;
+}
+
+.profile-header {
+  margin-bottom: 30px;
+}
+
+.profile-header h1 {
+  font-size: 28px;
+  margin-bottom: 7px;
+}
+
+.profile-header p {
+  color: #737d8e;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+}
+
+.profile-card {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.profile-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.large-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.profile-info h2 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.profile-info p {
+  color: #7b8494;
+  margin-bottom: 22px;
+}
+
+.profile-info .primary-button {
+  border: none;
+}
+
+/* Profile Information */
+
+.profile-card-header {
+  margin-bottom: 25px;
+}
+
+.profile-card-header h2 {
+  font-size: 19px;
+}
+
+.profile-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.profile-fields div {
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 11px;
+}
+
+.profile-fields span {
+  display: block;
+  color: #8992a2;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.profile-fields strong {
+  font-size: 14px;
+  color: #172033;
+}
+
+/* Fitness Overview */
+
+.fitness-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.fitness-overview div {
+  background: #f0fdf4;
+  padding: 20px 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.fitness-overview strong {
+  display: block;
+  font-size: 22px;
+  color: #15803d;
+  margin-bottom: 6px;
+}
+
+.fitness-overview span {
+  color: #737d8e;
+  font-size: 11px;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-info {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 800px) {
+  .profile-main {
+    margin-left: 75px;
+    width: calc(100% - 75px);
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .profile-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .fitness-overview {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .profile-header h1 {
+    font-size: 23px;
+  }
+}
+/* =================================
+   FITTRACK AI - SETTINGS
+================================= */
+
+.settings-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.settings-main {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  padding: 35px 40px;
+}
+
+.settings-header {
+  margin-bottom: 30px;
+}
+
+.settings-header h1 {
+  font-size: 28px;
+  margin-bottom: 7px;
+}
+
+.settings-header p {
+  color: #737d8e;
+}
+
+/* Settings Card */
+
+.settings-card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.settings-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.settings-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: #f0fdf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.settings-title h2 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.settings-title p {
+  color: #8992a2;
+  font-size: 12px;
+}
+
+/* Settings Row */
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 0;
+  border-top: 1px solid #edf0f4;
+}
+
+.settings-row strong {
+  font-size: 14px;
+}
+
+.settings-row p {
+  color: #8992a2;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Toggle */
+
+.switch {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch span {
+  position: absolute;
+  inset: 0;
+  background: #d1d5db;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.switch span::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch input:checked + span {
+  background: #22c55e;
+}
+
+.switch input:checked + span::before {
+  transform: translateX(22px);
+}
+
+/* Preferences */
+
+.settings-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  border-top: 1px solid #edf0f4;
+  padding-top: 20px;
+}
+
+.settings-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.settings-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dce1e8;
+  border-radius: 10px;
+  background: white;
+  outline: none;
+  color: #4b5563;
+}
+
+.settings-form select:focus {
+  border-color: #22c55e;
+}
+
+/* Danger */
+
+.danger-card {
+  border: 1px solid #fee2e2;
+}
+
+.danger-icon {
+  background: #fef2f2;
+}
+
+.danger-actions {
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid #edf0f4;
+  padding-top: 20px;
+}
+
+.logout-settings,
+.delete-settings {
+  padding: 11px 18px;
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.logout-settings {
+  border: 1px solid #dce1e8;
+  background: white;
+  color: #4b5563;
+}
+
+.delete-settings {
+  border: none;
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Hover */
+
+.logout-settings:hover {
+  background: #f8fafc;
+}
+
+.delete-settings:hover {
+  background: #fecaca;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+  .settings-main {
+    margin-left: 75px;
+    width: calc(100% - 75px);
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .settings-form {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-row {
+    align-items: flex-start;
+  }
+
+  .settings-header h1 {
+    font-size: 23px;
+  }
+
+  .danger-actions {
+    flex-direction: column;
+  }
+}
+/* =================================
+   FITTRACK AI - GLOBAL + HOME
+================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: #f5f7fb;
+  color: #172033;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* APP */
+
+.app-container {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 10%, #dcfce7 0, transparent 25%),
+    radial-gradient(circle at 90% 20%, #dbeafe 0, transparent 25%),
+    #f8fafc;
+}
+
+/* NAVBAR */
+
+.navbar {
+  height: 76px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  color: #172033;
+}
+
+.logo span {
+  color: #22c55e;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: #596273;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  color: #16a34a;
+}
+
+.nav-links .nav-button {
+  background: #22c55e;
+  color: white;
+  padding: 11px 18px;
+  border-radius: 9px;
+}
+
+.nav-links .nav-button:hover {
+  background: #16a34a;
+  color: white;
+}
+
+/* HERO */
+
+.hero {
+  min-height: calc(100vh - 76px);
+  padding: 70px 7%;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.hero-content {
+  max-width: 680px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 30px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(45px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: #22c55e;
+}
+
+.hero-content > p {
+  max-width: 600px;
+  color: #667085;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 13px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.primary-button {
+  background: #22c55e;
+  color: white;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.2);
+}
+
+.primary-button:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+}
+
+.secondary-button {
+  background: white;
+  color: #374151;
+  border: 1px solid #dce1e8;
+}
+
+.secondary-button:hover {
+  border-color: #22c55e;
+  color: #16a34a;
+}
+
+/* HERO CARD */
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+.hero-card h2 {
+  font-size: 21px;
+  margin-bottom: 25px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid #edf0f4;
+  color: #596273;
+}
+
+.stat:last-child {
+  border-bottom: none;
+}
+
+.stat-value {
+  font-weight: 800;
+  color: #172033;
+}
+
+/* AUTH */
+
+.auth-container {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  padding: 38px;
+  border-radius: 22px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.auth-card h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.auth-card > p {
+  color: #737d8e;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #dce1e8;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  color: #172033;
+  transition: 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+.full-button {
+  width: 100%;
+  border: none;
+  background: #22c55e;
+  color: white;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.full-button:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px !important;
+  margin-bottom: 0 !important;
+  font-size: 13px;
+}
+
+.auth-footer a {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+/* HOME RESPONSIVE */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 55px 6%;
+  }
+
+  .hero-card {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .nav-links .nav-button {
+    padding: 9px 12px;
+  }
+
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+    letter-spacing: -1px;
+  }
+
+  .hero-content > p {
+    font-size: 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary-button,
+  .secondary-button {
+    text-align: center;
+  }
+
+  .auth-card {
+    padding: 28px 22px;
+  }
+}
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 35px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.auth-card h1 {
+  margin-bottom: 10px;
+}
+
+.auth-card p {
+  margin-bottom: 20px;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-card input {
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.auth-card button {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* =================================
+   FITTRACK AI - DARK MODE
+================================= */
+
+body.dark-mode {
+  background: #111827;
+  color: #f3f4f6;
+}
+
+/* Main page backgrounds */
+body.dark-mode .dashboard-page,
+body.dark-mode .progress-page,
+body.dark-mode .ai-trainer-page,
+body.dark-mode .profile-page,
+body.dark-mode .settings-page {
+  background: #111827;
+}
+
+/* Sidebar */
+body.dark-mode .sidebar {
+  background: #1f2937;
+  border-right-color: #374151;
+}
+
+body.dark-mode .sidebar-nav a {
+  color: #cbd5e1;
+}
+
+body.dark-mode .sidebar-nav a:hover {
+  background: #263b2f;
+  color: #4ade80;
+}
+
+body.dark-mode .sidebar-nav a.active {
+  background: #14532d;
+  color: #86efac;
+}
+
+/* Main text */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode strong {
+  color: #f9fafb;
+}
+
+body.dark-mode p,
+body.dark-mode span {
+  color: #cbd5e1;
+}
+
+/* Dashboard cards */
+body.dark-mode .fitness-stat,
+body.dark-mode .dashboard-panel,
+body.dark-mode .progress-stat-card,
+body.dark-mode .progress-panel,
+body.dark-mode .chat-card,
+body.dark-mode .insight-card,
+body.dark-mode .profile-card,
+body.dark-mode .settings-card {
+  background: #1f2937;
+  color: #f3f4f6;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Dashboard */
+body.dark-mode .stat-icon,
+body.dark-mode .workout-icon,
+body.dark-mode .exercise-icon {
+  background: #263b2f;
+}
+
+body.dark-mode .nutrition-grid div,
+body.dark-mode .goal-info p {
+  background: #273244;
+}
+
+body.dark-mode .workout-item,
+body.dark-mode .exercise-card,
+body.dark-mode .meal-card,
+body.dark-mode .activity-row {
+  border-bottom-color: #374151;
+}
+
+/* AI panels */
+body.dark-mode .ai-panel,
+body.dark-mode .ai-progress,
+body.dark-mode .ai-tip {
+  background: linear-gradient(135deg, #173322, #1f2937);
+}
+
+body.dark-mode .chat-header {
+  border-bottom-color: #374151;
+}
+
+body.dark-mode .chat-input-area {
+  border-top-color: #374151;
+}
+
+body.dark-mode .message-bubble {
+  background: #374151;
+  color: #e5e7eb;
+}
+
+body.dark-mode .quick-questions button {
+  background: #1f2937;
+  border-color: #4b5563;
+  color: #d1d5db;
+}
+
+body.dark-mode .quick-questions button:hover {
+  background: #14532d;
+  border-color: #22c55e;
+  color: #86efac;
+}
+
+body.dark-mode .chat-input-area input {
+  background: #111827;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+/* Progress */
+body.dark-mode .period-select {
+  background: #1f2937;
+  border-color: #4b5563;
+  color: #f3f4f6;
+}
+
+body.dark-mode .goal-circle::before,
+body.dark-mode .progress-circle::before {
+  background: #1f2937;
+}
+
+/* Profile */
+body.dark-mode .profile-fields div {
+  background: #273244;
+}
+
+body.dark-mode .fitness-overview div {
+  background: #173322;
+}
+
+/* Settings */
+body.dark-mode .settings-title p,
+body.dark-mode .settings-row p,
+body.dark-mode .settings-header p {
+  color: #9ca3af;
+}
+
+body.dark-mode .settings-row {
+  border-top-color: #374151;
+}
+
+body.dark-mode .settings-form {
+  border-top-color: #374151;
+}
+
+body.dark-mode .settings-form select {
+  background: #111827;
+  border-color: #4b5563;
+  color: #f3f4f6;
+}
+
+body.dark-mode .logout-settings {
+  background: #1f2937;
+  border-color: #4b5563;
+  color: #e5e7eb;
+}
+
+body.dark-mode .logout-settings:hover {
+  background: #374151;
+}
+
+/* Danger card */
+body.dark-mode .danger-card {
+  border-color: #7f1d1d;
+}
+
+body.dark-mode .danger-icon {
+  background: #450a0a;
+}
+
+/* Home */
+body.dark-mode .app-container {
+  background:
+    radial-gradient(circle at 10% 10%, #173322 0, transparent 25%),
+    radial-gradient(circle at 90% 20%, #172554 0, transparent 25%),
+    #111827;
+}
+
+body.dark-mode .navbar {
+  background: rgba(31, 41, 55, 0.95);
+  border-bottom-color: #374151;
+}
+
+body.dark-mode .logo {
+  color: #f9fafb;
+}
+
+body.dark-mode .nav-links a {
+  color: #cbd5e1;
+}
+
+body.dark-mode .hero-content > p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .hero-card {
+  background: rgba(31, 41, 55, 0.95);
+  border-color: #374151;
+}
+
+body.dark-mode .secondary-button {
+  background: #1f2937;
+  color: #e5e7eb;
+  border-color: #4b5563;
+}
+
+body.dark-mode .stat {
+  border-bottom-color: #374151;
+  color: #cbd5e1;
+}
+
+body.dark-mode .stat-value {
+  color: #f9fafb;
+}
+
+/* Auth */
+body.dark-mode .auth-container {
+  background: #111827;
+}
+
+body.dark-mode .auth-card {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+body.dark-mode .auth-card h1 {
+  color: #f9fafb;
+}
+
+body.dark-mode .auth-card input {
+  background: #111827;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+body.dark-mode .form-group label {
+  color: #e5e7eb;
+}
