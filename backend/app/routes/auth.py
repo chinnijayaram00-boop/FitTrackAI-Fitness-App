@@ -6,10 +6,18 @@ from sqlalchemy.orm import Session
 from jose import jwt, JWTError
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 import bcrypt
+from dotenv import load_dotenv
 
 from app.database import get_db
 from app.models.user import User
 
+
+# ================= LOAD ENVIRONMENT =================
+
+load_dotenv()
+
+
+# ================= ROUTER =================
 
 router = APIRouter(
     prefix="/auth",
@@ -155,7 +163,7 @@ def login_user(
         )
 
     # JWT expires after 2 hours
-    expire = datetime.now(timezone.utc) + timedelta(minutes=1)
+    expire = datetime.now(timezone.utc) + timedelta(hours=2)
 
     access_token = jwt.encode(
         {
